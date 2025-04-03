@@ -1,5 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.content
+    div.product-header-container
+      h1.products-header Welcome to XYZ Store
+      a.button.primary(href='/products/add') Add Product
+    div.table-container
+      table
+        thead
+          th Product Name
+          th Rating
+          th Category
+          th
+          tbody
+            each product in products
+              tr
+                td= product.product_name
+                td= product.rating
+                td= product.category
+                td
+                  a(href=`/products/profile/${product.id}`) View Product
